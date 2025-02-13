@@ -64,17 +64,16 @@ app.get('/menu', (req, res) => {
     });
 
 app.get('/menu/:category/', (req, res) => {
-    const category = req.params.category; // Get category from URL
-    const filteredMenuItems = []; // Create an empty array to store matching items
+    const category = req.params.category; 
+    const filteredMenuItems = []; 
 
-    // Loop through RESTAURANT.menu and filter based on category
+    
     for (let i = 0; i < RESTAURANT.menu.length; i++) {
-        if (RESTAURANT.menu[i].category === category) { // If category matches
-            filteredMenuItems.push(RESTAURANT.menu[i]); // Add item to the array
+        if (RESTAURANT.menu[i].category === category) { 
+            filteredMenuItems.push(RESTAURANT.menu[i]); 
         }
     }
 
-    // Pass the filtered menu items to the category.ejs view
     res.render('category.ejs', { 
         menuItems: filteredMenuItems,
         category: category
